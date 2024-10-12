@@ -1,0 +1,27 @@
+spring:
+  data:
+    cassandra:
+      contact-points: 127.0.0.1
+      port: 9042
+      keyspace-name: mykeyspace
+      local-datacenter: datacenter1
+      schema-action: create-if-not-exists
+camel:
+  springboot:
+    main-run-controller : true
+  route:
+    inbox:
+      dir: src/data/inbox
+    outbox:
+      dir: src/data/outbox
+  component:
+    kafka:
+      brokers: localhost:29092
+kafka:
+  topic: test-topic
+#logging:
+#  level:
+#    com:
+#      datastax:
+#        oss:
+#          driver: DEBUG
